@@ -71,9 +71,14 @@ namespace Lab3
 
             if (status == GpioPinValue.High)
             {
-                // do your work here. 
+                // do your work here.
+
                 count++;
-                countTB.Text = count.ToString();
+                var task = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    countTB.Text = count.ToString();
+                });
+                
             }
 
             // make sure the sensor status remain on when the system is on
